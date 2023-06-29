@@ -1,13 +1,6 @@
 ## PKS Guestbook App with PVs & SVC type LoadBalancer
 1. cd github/kubernetes/guestbook-storageclass
-2. kubectl apply -f .
-    
-    OR
-    
-2. kubectl apply -f redis-sc.yaml
-3. kubectl apply -f redis-master-claim.yaml
-4.  kubectl apply -f redis-slave-claim.yaml
-5.  kubectl apply -f guestbook-all-in-one.yaml
+2. kubectl apply -f ./guestbook-all-in-one.yaml
 6.  watch kubectl get pods -o wide
 7.  kubectl get sc
 8.  kubectl get pvc
