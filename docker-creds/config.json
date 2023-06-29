@@ -1,10 +1,10 @@
 {
 	"auths": {
 		"https://index.docker.io/v1/": {
-			"auth": "cnJvcXVlOTk6ZFQ1NG9rNWQ="
+			"auth": "bXl0a3JhdXNqcjpCbEBja2JlbHQyMDE5"
 		},
 		"https://registry-1.docker.io": {
-			"auth": "cnJvcXVlOTk6ZFQ1NG9rNWQ="
+			"auth": "bXl0a3JhdXNqcjpCbEBja2JlbHQyMDE5"
 		}
 	},
 	"HttpHeaders": {
