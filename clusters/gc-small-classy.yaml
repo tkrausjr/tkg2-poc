@@ -28,4 +28,8 @@ spec:
         value: nfs-datastores
       - name: defaultStorageClass
         value: nfs-datastores
+      - name: trust
+        value:
+          additionalTrustedCAs:
+          - name: harbor-tpmlab
 

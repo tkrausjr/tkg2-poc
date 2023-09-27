@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: nginx-deploy-harbor
+  name: nginx-deploy-harbor
+spec:
+  replicas: 5
+  selector:
+    matchLabels:
+      app: nginx-deploy-harbor
+  template:
+    metadata:
+      labels:
+        app: nginx-deploy-harbor
+    spec:
+      containers:
+      - image: harbor.tpmlab.vmware.com/proxy/library/nginx
+        name: nginx-harbor

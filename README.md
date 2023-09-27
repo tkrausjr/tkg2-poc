@@ -15,7 +15,7 @@
         1. kubectl create clusterrolebinding psp:authenticated --clusterrole=psp:vmware-system-restricted --group=system:authenticated
 4. cd ../apps/guestbook-sc-lb
 3.  kubectl apply -f guestbook-all-in-one.yaml
-6.  watch kubectl get pods -o wide
+4. watch kubectl get pods -o wide
 7.  kubectl get sc
 8.  kubectl get pvc
 9.  kubectl get pv
@@ -39,3 +39,22 @@
 18.  Chrome - TEST !!! - Access the Application again - It should have the same text you entered.
     
 
+## To deploy an nginx test Deployment from a local registry
+1. If Local registry has a self signed CERT you will get an x509 Error pulling images.
+2. You will need to deploy or edit a cluster to include the regsitry trust section
+3. openssl s_client -connect 10.173.13.84:443               
+	1. CONNECTED(00000003)
+	2. depth=0 C = CN, ST = NewYork, L = NewYork, O = example, OU = Personal, CN = harbor.tpmlab.vmware.com
+	3. Server certificate
+	4. -----BEGIN CERTIFICATE-----
+	5. MIIGFTCCA/2gAwIBAgIUAIFOAaVcYubzVcqJ42FFAMUQ5r4wDQYJKoZIhvcNAQEN
+	6. BQAweTELMAkGA1UEBhMCQ04xEDAOBgNVBAgMB05ld1lvcmsxEDAOBgNVBAcMB05l
+4. Base64 encode 
+	- [ ] echo "-----BEGIN CERTIFICATE-----MIIGFTCCA/2gAwIBAgIUAIFOAaVcYubzVcqJ42FFAMUQ5r4wDQYJKoZIhvcNAQE.... | base64 -w 0
+5. Copy the output and Base64 encode again
+	- [ ] echo "LS0tLS1CRUdJTiBDRVJUSUZJQ0FURS0tLS0tDQpNSUlHRlRDQ0EvM...01TRXd  | base64 -w 0
+6. Copy the output  into the data section of the secret.
+- [ ] vi aci-registryca-v2.yaml
+4.
+5.
+6.
